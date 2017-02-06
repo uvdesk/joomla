@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset name="default" label="">
+		<field
+			 name="captcha"
+			 type="captcha"
+			 label="Captcha"
+			 description="COM_CONFIG_FIELD_SERVER_TIMEZONE_DESC">
+			</field>
+	</fieldset>
+</form>

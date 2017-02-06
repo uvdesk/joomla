@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset
+		name="locale"
+		label="Select Timezone">
+		<field
+			name="offset"
+			type="timezone"
+			default="UTC"
+			label="Select Timezone"
+			description="COM_CONFIG_FIELD_SERVER_TIMEZONE_DESC">
+			<option value="UTC">JLIB_FORM_VALUE_TIMEZONE_UTC</option>
+		</field>
+	</fieldset>
+</form>

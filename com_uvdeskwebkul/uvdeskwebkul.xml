@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.0" method="upgrade">
+    <name>com_uvdeskwebkul</name>
+    <creationDate>2017-01-09</creationDate>
+    <copyright>Copyright (C) 2010 webkul.com. All Rights Reserved</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <author>webkul</author>
+    <authorEmail>support@webkul.com</authorEmail>
+    <authorUrl>http://store.webkul.com</authorUrl>
+    <version>1.0</version>
+    <description></description>
+    <scriptfile>script.php</scriptfile>
+    
+    
+    <install> <!-- Runs on install -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+    <update> <!-- Runs on update -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/update.mysql.utf8.sql</file>
+        </sql>
+    </update>
+    <uninstall> <!-- Runs on uninstall -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+
+    <files folder="site">
+        <filename>index.html</filename>
+        <filename>uvdeskwebkul.php</filename>
+        <filename>controller.php</filename>
+        <filename>router.php</filename>
+        <folder>views</folder>
+        <folder>models</folder>
+        <folder>controllers</folder>
+        <folder>helpers</folder>
+    </files>
+    <media destination="com_uvdeskwebkul" folder="media">
+        <folder>js</folder>
+        <folder>css</folder>
+    </media>
+    <languages folder="languages/site">
+        
+			<!-- <language tag="en-GB">en-GB/en-GB.com_uvdeskwebkul.ini</language> -->
+    </languages>
+    <administration>
+        <menu img="media/com_uvdeskwebkul/images/s_com_uvdeskwebkul.png" >COM_UVDESKWEBKUL</menu>
+        <submenu>
+            
+			<menu link="option=com_uvdeskwebkul&amp;view=dashboard" view="dashboard" img="media/com_uvdeskwebkul/images/s_.png" alt="Uvdeskwebkul/dashboard">Dashboard</menu>
+            <menu link="option=com_uvdeskwebkul&amp;view=Viewtickets" view="vewtickets" img="media/com_uvdeskwebkul/images/s_.png" alt="Uvdeskwebkul/Viewtickets">COM_UVDESKWEBKUL_TITLE_V1EWTICKETS</menu>
+
+            <menu link="option=com_uvdeskwebkul&amp;view=users" view="users" img="media/com_uvdeskwebkul/images/s_.png" alt="Uvdeskwebkul/users">Customers</menu>
+        </submenu>
+        <files folder="administrator">
+            <filename>access.xml</filename>
+            <filename>config.xml</filename>
+            <filename>controller.php</filename>
+            <filename>index.html</filename>
+            <filename>uvdeskwebkul.php</filename>
+            <folder>controllers</folder>
+            <folder>assets</folder>
+            <folder>helpers</folder>
+            <folder>models</folder>
+            <folder>sql</folder>
+            <folder>tables</folder>
+            <folder>views</folder>
+        </files>
+        <languages folder="languages/administrator">
+            
+			<language tag="en-GB">en-GB/en-GB.com_uvdeskwebkul.ini</language>
+			<language tag="en-GB">en-GB/en-GB.com_uvdeskwebkul.sys.ini</language>
+        </languages>
+    </administration>
+    <config>
+        <fields name="params">
+            <fieldset name="component">
+                <field name="save_history" default="0" />
+            </fieldset>
+        </fields>
+    </config>
+    <plugins>
+        <plugin group="search" plugin="uvdeskwebkul"/>
+    </plugins>
+    
+</extension>
+<!-- Component built by the Joomla Component Creator -->
+<!-- http://www.component-creator.com/ -->
