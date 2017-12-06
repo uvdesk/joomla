@@ -20,6 +20,10 @@
     padding-right: 7px;
     padding-top: 3.5px;
 }
+.wk_bodytable .round-tabs .wkcustomer{
+  width:50px;
+  border-radius: 25px;
+}
 .label-primary, .badge-primary {
     background-color: #3bafda !important;
     border-bottom-color: #3bafda !important;
@@ -64,12 +68,28 @@
     text-shadow: none;
     text-decoration: none!important;
 }
+.withoutSelection .chzn-container{
+  width:120px!important;
+}
 .mark-star-yellow{
     color: #FECF03!important;
+    cursor: pointer;
 
 }
 .mark-star-gray{
     color: #CACACA!important;
+    cursor: pointer;
+    
+}
+.ticket-table .agent-name div{
+  float: left;
+}
+.ticket-table .icon-circle{
+  vertical-align: bottom;
+  font-size: 10px;
+}
+.delete-user .delete{
+  cursor: pointer;
 }
 .orderhistory_main .subject a{
     color: #617d8a!important;
@@ -99,7 +119,6 @@
 }*/
 
 .ajax-loader {
-    background-image: url("../bundles/webkuldefault/images/cssImages/loader.gif");
     background-position-x: center;
     background-position-y: top;
     background-repeat: no-repeat;
@@ -111,7 +130,7 @@
     text-align: center;
     position: absolute;
     z-index: 1;
-    left: 50%;
+    left: calc(50% - 60px);
     top: 40%;
 }
 .content-wrap {
@@ -127,9 +146,7 @@
     display: none;
     opacity: 0.8;
 }
-#wkTabs li i{
-    margin-right: 5px;
-}
+
 #wkTabs li .badge{
     margin-left: 5px;
 }
@@ -178,15 +195,20 @@ color: #434a54;
 cursor: pointer;
 float: left;
 font-weight: 600;
-height: 40px;
-line-height: 37px;
 text-align: center;
 
 }
 .block-title{
     margin-bottom: 15px;
     float: left;
-    width: 100%;
+    overflow: hidden;
+}
+#j-main-container .block-title,.wk_header_container .block-title{
+  padding-left:10px; 
+}
+.wkiconspacing{
+  margin-left: 5px;
+  font-size: 20px;
 }
 .block-title h3{
      color: #676a6c;
@@ -214,7 +236,7 @@ text-align: center;
 #wkDashboardTabs li:not(:nth-child(1)){
     border-left: 1px solid #DDDDDD;
 }
-#wkDashboardTabs li a{
+#wkDashboardTabs li label:nth-child(1){
     color: #37bc9b;
     font-weight: 600;
     width: 100%;
@@ -253,7 +275,7 @@ text-align: center;
 .container-fluid{
     padding: 0px!important;
 }
-@media only screen and (max-width: 768px){
+@media only screen and (max-width: 769px){
     #wkDashboardTabs li{
         width: 100%!important;
         float: none!important;
@@ -262,6 +284,9 @@ text-align: center;
         padding-top: 5px;
         padding-bottom: 5px;
       
+    }
+    #wkTabs li a p {
+      display: none;
     }
 }
 .wkTabContainer label{
@@ -441,6 +466,8 @@ text-align: center;
     padding-bottom: 10px;
     text-align: center;
     padding: 0 10px;
+    overflow: hidden;
+    margin-bottom: 30px;
 
 }
 .thread-created-info a{
@@ -455,10 +482,8 @@ text-align: center;
   width: 100%;
 }
 .round-tabs.three > img {
-  border-bottom-left-radius: 100px;
-  border-bottom-right-radius: 100px;
-  border-top-left-radius: 100px;
-  border-top-right-radius: 100px;
+  width:40px;
+  /*border: 1px solid #EEE;*/
 }
 span.round-tabs.three {
   height: 40px;
@@ -469,6 +494,10 @@ span.round-tabs {
   float: left;
   margin-right: 5px;
 }
+.wk_block-container_main{
+  float: none!important;
+}
+
 #wk_block-container {
   -moz-border-bottom-colors: none;
   -moz-border-left-colors: none;
@@ -559,9 +588,10 @@ white-space: nowrap;
   width: 100%;
 }
 .thread-pagination {
-  float: left;
-  text-align: center;
   width: 100%;
+  position: relative;
+  min-height: 5px;
+  clear: both;
 }
 
 /*.btn-info.btn-sm {
@@ -578,26 +608,32 @@ white-space: nowrap;
   border-bottom-style: solid;
   border-bottom-width: 1px;
   float: left;
-  margin-top: -18px;
+  /*margin-top: -18px;*/
   width: 100%;
 }
 .thread-pagination button {
-  padding-bottom: 4px;
+  padding-bottom: 8px;
   padding-left: 10px;
   padding-right: 10px;
-  padding-top: 4px;
+  margin-top:-16px; 
+  padding-top: 8px;
+  position: absolute;
+  left:calc(50% - 77px);
+  
 }
 .thread-pagination button, .thread-pagination button:active, .thread-pagination button:focus, .thread-pagination button:hover {
-  background-color: #355995 !important;
-  border-bottom-color: #355995 !important;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  border-left-color: #355995 !important;
-  border-right-color: #355995 !important;
-  border-top-color: #355995 !important;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  font-size: 14px;
+  background-color: #2384d3;
+  background-image: linear-gradient(to bottom, #2384d3, #2384d3);
+  background-repeat: repeat-x;
+  border-bottom-color: #2384d3;
+  border-left-color: #2384d3;
+  border-right-color: #2384d3;
+  border-top-color: #2384d3;
+  border-radius: 25px;
+  color: #fff;
+  height: 36px;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  font-size:14px;
 }
 .btn {
   -moz-border-bottom-colors: none;
@@ -627,6 +663,7 @@ white-space: nowrap;
 }
 .pull-left{
     float: left;
+    height: 50px;
 }
 .thread-info {
   float: left;
@@ -705,12 +742,13 @@ white-space: nowrap;
   float: left;
   margin-right: 8px;
   position: relative;
+  margin-bottom: 10px;
 }
 i.fa-file.zip {
   color: #d0a650;
 }
 .thread-attachments i.fa-file {
-  font-size: 50px;
+  font-size: 50px!important;
 }
 .thread-attachments .attachment span {
   color: #fff;
@@ -728,6 +766,9 @@ i.fa-file.zip {
   font-weight: 600;
   margin-top: 10px;
   width: 100%;
+}
+.wk_file_attach{
+  display: none;
 }
 .panel {
   -moz-border-bottom-colors: none;
@@ -841,8 +882,8 @@ i.fa-file.zip {
   color:#676a6c;
 }
 #j-sidebar-container li a{
-  font-size: 15px!important;
-   color:#3c5794;
+  font-size: 16px!important;
+   color:#42A6F5;;
   font-weight: 500!important;
   list-style-image: none;
   list-style-position: outside;
@@ -862,10 +903,8 @@ i.fa-file.zip {
   border-bottom-style: solid;
   border-bottom-width: 1px;
   min-height: 16.4286px;
-  padding-bottom: 15px;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-top: 15px;
+  padding: 15px!important;
+  background-color:#A6CD60; 
 }
 .modal-content {
   -moz-border-bottom-colors: none;
@@ -940,6 +979,8 @@ i.fa-file.zip {
   padding-left: 5px;
   padding-right: 5px;
   padding-top: 0;
+  line-height: 30px!important;
+  width: 30px!important;
 }
 .modal-title {
   line-height: 1.42857;
@@ -950,7 +991,7 @@ i.fa-file.zip {
   font-size: 18px;
 }
 .modal-body{
-  padding: 15px;
+  padding: 20px!important;
   position: relative;
   max-height:none!important;
 }
@@ -1027,12 +1068,8 @@ label{
 textarea {
   min-height: 100px;
 }
-div.labelWidget .attach-file {
-  background-image: url(https://cdn.uvdesk.com/uvdesk/bundles/webkuldefault/images/cssImages/image-upload.png);
-  background-position-x: center;
-  background-position-y: center;
-  background-repeat: no-repeat;
-  background-size: contain;
+div.labelWidget span {
+  font-size: 14px;
 }
 label.attach-file {
   background-attachment: scroll;
@@ -1063,10 +1100,14 @@ label.attach-file {
   text-align: center;
   vertical-align: top;
 }
-div.labelWidget {
+/*div.labelWidget {
   display: inline-block;
   float: left;
   position: relative;
+}*/
+.labelWidget span,.labelWidget i {
+  cursor: pointer;
+  color: #8473F3;
 }
 input[type="file"] {
   display: block;
@@ -1090,7 +1131,6 @@ input, button, select, textarea {
 
 }
 .modal {
-  bottom: 0;
   left: 0;
   outline-color: -moz-use-text-color;
   outline-style: none;
@@ -1118,7 +1158,7 @@ input[type="file"] {
   padding-top: 0;
   width: 0px;
 }
-#attachments {
+.attachments {
   height: 0px!important;
   width: 0px!important;
 }
@@ -1516,4 +1556,343 @@ input[type="file"] {
 #wk_drop_up li:hover{
   background: #3498DB;
   color: #FFF;
+}
+.wkViewAllticket .wktable a:link,.wkViewAllticket .wktable a:hover,.wkViewAllticket .wktable a:visited,.wkViewAllticket .wktable a:active{
+   color: #222;
+    font-family: 'Roboto', sans-serif;
+   /* font-weight: 700;*/
+    text-shadow: none;;
+    text-decoration: none!important;
+    outline: none!important;
+
+}
+.wkAgentImage {
+  width: 40px;
+  margin: 0px 10px;
+  vertical-align: middle;
+}
+.thread-created-info span{
+  display: block;
+  float: left;
+  margin-left: 5px;
+}
+.vr {
+    width:1px;
+    background-color:#ddd;
+    position:absolute;
+    top:0;
+    bottom:0;
+    right:0px;
+}
+header{
+  overflow: hidden;
+}
+.wkagentimg{
+  width: 40px;   
+}
+.ticket-filter-block .groupfilter,.ticket-filter-block .typefilter,.ticket-filter-block .agentfilter,.thread-pagination1{
+  margin-top: 20px;
+}
+.wkpanel-body{
+  border:1px solid #DDD;
+  text-align: center;
+  height: 300px;
+}
+.wksearchpanel-body{
+  border:1px solid #DDD;
+  text-align: center;
+  padding: 25px 0px;
+  margin-bottom:20px;
+  
+}
+.wkpanel-body .wkheader,.wksearchpanel-body .wkheader{
+  height:15px;
+  padding: 10px 0px 28px 0px;
+  background-color: #eee;
+}
+.wksearchpanel-body .searchfilter{
+  margin-top:20px;
+}
+.wksearchpanel-body .searchfilter input{
+  height:30px;
+}
+/*.wkTicketHeader{
+  overflow: hidden;
+}*/
+
+ @media only screen and (max-width: 769px){
+  .thread-pagination button{
+    left: calc(50% - 20px);
+  }
+	/* Force table to not be like tables anymore */
+	.orderhistory_main_front table,.orderhistory_main_front thead,.orderhistory_main_front tbody,.orderhistory_main_front th,.orderhistory_main_front td, .orderhistory_main_front tr { 
+		display: block; 
+	}
+	.wkTicketHeader{
+    overflow: hidden;
+    height: 240px;
+  }
+  .thread-created-info .text-right.date{
+    margin-top:10px;
+    text-align: center;
+  }
+  .thread-body .thread-info {
+    overflow: hidden;
+    height: 60px;
+  }
+  .ticket-thread .thread-body{
+    width: 100%;
+  }
+  .wk_thread_pagination .pages span:nth-child(2){
+    display: none;
+  }
+  .thread-attachments .attachment{
+    margin-top: 10px;
+  }
+  .ticket-thread .thread{
+    min-width: 250px;
+  }
+	/* Hide table headers (but not display: none;, for accessibility) */
+	.orderhistory_main_front thead tr { 
+    display:none;
+	}
+	
+	.orderhistory_main_front tbody tr { border: 1px solid #ccc; margin-top: 5px; }
+	
+	.orderhistory_main_front tbody td { 
+	border: none;
+	border-bottom: 1px solid #eee;
+	position: relative;
+	padding-left: 50% !important;
+	white-space: normal;
+	text-align:left;
+	min-height: 30px;
+	}
+	
+	.orderhistory_main_front tbody td:before { 
+		/* Now like a table header */
+		
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		position: absolute;
+		text-align:left;
+		font-weight: bold;
+	}
+	
+	.orderhistory_main_front tbody td:nth-of-type(1):before { content: "Ticket No.";}
+	.orderhistory_main_front tbody td:nth-of-type(2):before { content: "Subject"; }
+	.orderhistory_main_front tbody td:nth-of-type(3):before { content: "Status"; }
+	.orderhistory_main_front tbody td:nth-of-type(4):before { content: "Create Date"; }
+	.orderhistory_main_front tbody td:nth-of-type(5):before { content: "Agent"; }
+	
+	.orderhistory_main_front tbody td:before{
+		font-weight: bold;
+	}
+	.orderhistory_main_front tbody td p,.orderhistory_main_front td p:before{
+		width: 49%;
+		min-width: 100px;
+		max-width: 200px;
+		display: inline-block;
+	}
+  .wktable .agent-name,.wktable td{
+    overflow: hidden;
+  }
+	
+}
+.wk_ticket_single_status_name{
+  min-width: 140px;
+  text-align: center;
+}
+.wk_ticket_detail{
+  border: 1px solid #EEE;
+  padding:10px;
+}
+.wk_ticket_single_status{
+  margin: 15px 0px;
+}
+.ticket-label-block ul li .badge{
+  margin-left:5px;
+}
+.ticket-info-block .badge{
+  margin-bottom: 10px;
+}
+.ticket-label-block ul li a:visited,.ticket-label-block ul li a:hover,.ticket-label-block ul li a:active,.ticket-label-block ul li a:link{
+  text-decoration: none;
+  
+}
+.thread-created-info .thread-created-info_blocks{
+  float: left;
+  margin-right: 30px;
+}
+.thread-created-message-reply{
+  overflow: hidden;
+  background-color: #EEE;
+  padding: 0px 0px 5px 0px;
+  margin: 0px 10px;
+}
+.showSweetAlert fieldset{
+  display: none;
+}
+.horizontal-row{
+  width: 100%;
+  border-bottom: 1px solid #DDD;
+  overflow: hidden;
+}
+.wk_sort_search_filter,.wk_sort_search_filter div:nth-child(1),.wk_sort_filter_search {
+  float: left;
+  margin-left:30px; 
+  padding-top:5px; 
+}
+.wk_customer_serach{
+  height: 40px;
+}
+ #wkTabs li{
+        width: 16.56%;
+        float: left;
+        /*border: 1px solid;*/
+    }
+    .content{
+        border: 2px solid;
+        min-width: 100px;
+    }
+    .navbar-inner .nav-collapse{
+        display: block;
+    }
+    .sidebar{
+        width: 100%;
+    }
+    .tr{
+        vertical-align: middle;
+    }
+    #tabsContainer{
+        padding: 10px;
+        clear: both;
+    }
+    .wk_selectbox{
+        float: left;
+        margin-left: 10px;
+        margin-bottom: 10px;
+    }
+    .wk_selectbox .chzn-single{
+        height: 32px;
+    }
+    #search-ticket{
+        padding-left: 25px; 
+    }
+    .wk_selectbox .icon-search{
+        position: absolute;
+        top: 12px;
+        left: 10px;
+        color: blue;
+    }
+    .orderhistory_main_front *{
+        font-family: Open Sans;
+    }
+    #wk_block-container_customer{
+      min-height: 190px;
+    }
+  .wk_mass_selection{
+    margin-bottom: 10px;
+  }
+  .wk_agent_name_text{
+    display: block;
+    margin-top: 10px;
+  }
+  #j-sidebar-container i {
+    margin-right:5px; 
+  }
+  @media only screen and (max-device-width: 549px) {
+
+    #mce-modal-block {
+    }
+
+    .mce-window {
+        width: auto !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        background: none !important;
+    }
+
+    .mce-window-head {
+        background: #fff !important;
+    }
+
+    .mce-window-body {
+        background: #fff !important;
+    }
+
+    .mce-foot {
+    }
+
+        .mce-foot > .mce-container-body {
+            padding: 10px !important;
+        }
+
+        .mce-foot button {
+        }
+
+    .mce-panel {
+        max-width: 100% !important;
+    }
+
+    .mce-container {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    .mce-container-body {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    .mce-form {
+        padding: 10px !important;
+    }
+
+    .mce-tabs {
+        max-width: 100% !important;
+    }
+
+        .mce-tabs .mce-tab, .mce-tabs .mce-tab.mce-active {
+        }
+
+    .mce-formitem {
+        margin: 10px 0 !important;
+    }
+
+    .mce-btn > button {
+    }
+
+    .mce-abs-layout-item {
+        position: static !important;
+        width: auto !important;
+    }
+
+        .mce-abs-layout-item.mce-label {
+            display: block !important;
+        }
+
+        .mce-abs-layout-item.mce-textbox {
+            -webkit-box-sizing: border-box !important;
+            -moz-box-sizing: border-box !important;
+            box-sizing: border-box !important;
+            display: block !important;
+            width: 100% !important;
+        }
+
+        .mce-abs-layout-item.mce-combobox {
+            display: flex !important;
+        }
+
+            .mce-abs-layout-item.mce-combobox > .mce-textbox {
+                -ms-flex: 1 1 auto;
+                -webkit-flex: 1 1 auto;
+                flex: 1 1 auto;
+                height: 29px !important;
+            }
 }

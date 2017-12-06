@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <metadata>
-	<layout title="UvDeskLogin">
+	<layout title="COM_UVDESKWEBKUL_MENU_LOGIN">
         <message>
-                 <![CDATA[         ]]>
+                 <![CDATA[COM_UVDESKWEBKUL_MENU_LOGIN_DESC]]>
         </message>
 	</layout>
  </metadata>

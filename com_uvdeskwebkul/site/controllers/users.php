@@ -36,43 +36,8 @@ class UvdeskwebkulControllerUsers extends JControllerForm
      */
     public function __construct()
     {
-        $this->view_list = 'users';
+        $this->view_list = 'viewtickets';
         parent::__construct();
-        $model=$this->getModel();
-        $checkCustomer=$model->getMember();
-        if (!isset($checkCustomer->customers[0]->email)) {
-            $params= JComponentHelper::getParams('com_uvdeskwebkul');
-            $accessToken=$params->get('accesstoken');
-            $subDomain=$params->get('wksubdomain');
-            $access_token =$accessToken;
-            $company_domain =$subDomain;
-            $user=JFactory::getUser();
-            $url = 'https://'.$company_domain.'.uvdesk.com/en/api/customers.json';
-            $data = json_encode(
-                array(
-                "firstName" => $user->name,
-                "lastName" => '',
-                "email" =>$user->email)
-            );
-            $ch = curl_init($url);
-            $headers = array(
-                'Authorization: Bearer '.$access_token,
-                'Content-type: application/json'
-            );
-            curl_setopt($ch, CURLOPT_POST, true);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-            curl_setopt($ch, CURLOPT_HEADER, true);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-            $server_output = curl_exec($ch);
-            $info = curl_getinfo($ch);
-            $header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
-            $headers = substr($server_output, 0, $header_size);
-            $response = substr($server_output, $header_size);
-            curl_close($ch);
-        }
     }
     /**
      * Method to Delete Customer
@@ -88,7 +53,6 @@ class UvdeskwebkulControllerUsers extends JControllerForm
         $subDomain=$params->get('wksubdomain');
         $access_token =$accessToken;
         $company_domain =$subDomain;
-        $status=$jInput->get('status', '', 'STR');
         $url = 'https://'.$company_domain.'.uvdesk.com/en/api/customer/'.$customerId.'.json';
         $ch = curl_init($url);
         $json_id=array("id"=>$customerId);
@@ -123,10 +87,10 @@ class UvdeskwebkulControllerUsers extends JControllerForm
         $subDomain=$params->get('wksubdomain');
         $access_token =$accessToken;
         $company_domain =$subDomain;
-        $status=$jInput->get('status', '', 'STR');
         $url = 'https://'.$company_domain.'.uvdesk.com/en/api/customer/'.$customerId.'.json';
         $ch = curl_init($url);
-        $json_id=array("editType"=>"star");
+        $json_id=array("id"=>$customerId);
+        $headers = array('Authorization: Bearer '.$access_token,);
         $headers = array('Authorization: Bearer '.$access_token,);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PATCH");
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($json_id));
@@ -139,10 +103,8 @@ class UvdeskwebkulControllerUsers extends JControllerForm
         $header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
         $headers = substr($output, 0, $header_size);
         $response = substr($output, $header_size);
-        $response=json_decode($response);
         curl_close($ch);
-        $response->customerId=$customerId;
-        echo json_encode($response);
+        echo $customerId;
         JFactory::getApplication()->close();
     }
     /**
@@ -154,25 +116,14 @@ class UvdeskwebkulControllerUsers extends JControllerForm
      */
     public function getCustomers()
     {
-        $jInput=JFactory::getApplication()->input;
         $params= JComponentHelper::getParams('com_uvdeskwebkul');
         $accessToken=$params->get('accesstoken');
         $subDomain=$params->get('wksubdomain');
         $access_token =$accessToken;
         $company_domain =$subDomain;
-        $page=$jInput->post->get('page', 1, 'INT');
-        $sort=$jInput->post->get('sort', '', 'STR');
-        $sort=explode(' ', $sort);
-        $direction=$sort[1];
-        $sort=$sort[0];
-        $search=$jInput->post->get('search', '', 'STR');
+        $jInput=JFactory::getApplication()->input;
+        $page=$jInput->get('page', 0, 'INT');        
         $url = 'https://'.$company_domain.'.uvdesk.com/en/api/customers.json?page='.$page;
-        if (JString::strlen(trim($search))) {
-            $url.='&search='.$search;
-        } 
-        if (isset($sort) && isset($direction)) {
-            $url.='&sort='.$sort.'&direction='.$direction;
-        }
         $ch = curl_init($url);
         $headers = array('Authorization: Bearer '.$access_token,);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);

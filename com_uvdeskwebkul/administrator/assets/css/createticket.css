@@ -1,0 +1,30 @@
+.wk-custom-fields .wk_radioWrapper label{
+	display: inline!important;
+}
+.wk-custom-fields {
+	overflow: hidden;
+}
+.wk-custom-fields .wk_select {
+	margin: 10px 0px;
+	overflow: hidden;
+}
+/*.wk-custom-fields .wk_radio label{
+	float: left;
+}*/
+.wk-custom-fields .wk_radioWrapper,.wk-custom-fields .wk_select label{
+	float: left;
+	margin-right: 10px;
+}
+.wk-custom-fields .wk_radio,.wk-custom-fields .wk_selectWrapper{
+	float: left;
+	width: 100%;
+	overflow: hidden;
+}
+.wk-custom-fields .wk_common_input{
+	margin: 10px 5px;
+	overflow: hidden;
+	width: calc(100% - 10px);
+}
+.wk_required{
+	color: #FF0000;
+}	

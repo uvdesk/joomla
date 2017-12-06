@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <metadata>
-	<layout title="Create Ticket">
+	<layout title="COM_UVDESKWEBKUL_MENU_CREATE_TICKET">
         <message>
-                 <![CDATA[         ]]>
+                 <![CDATA[COM_UVDESKWEBKUL_MENU_CREATE_TICKET_DESC]]>
         </message>
 	</layout>
  </metadata>

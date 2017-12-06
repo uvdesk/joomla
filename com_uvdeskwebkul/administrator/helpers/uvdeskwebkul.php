@@ -1,93 +1,92 @@
 <?php
-
 /**
- * @version    CVS: 1.0.0
- * @package    Com_Uvdeskwebkul
- * @author     webkul <support@webkul.com>
- * @copyright  Copyright (C) 2010 webkul.com. All Rights Reserved
- * @license    GNU General Public License version 2 or later; see LICENSE.txt
+ * Joomla Help Desk Ticket System
+ *
+ * PHP version 7.0
+ *
+ * @category   Component
+ * @package    Joomla
+ * @author     WebKul software private limited <support@webkul.com>
+ * @copyright  2010 WebKul software private limited
+ * @license    http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+ * @version    GIT:1.0
+ * @filesource http://store.webkul.com
+ * @link       Technical Support:  webkul.uvdesk.com
  */
 // No direct access
 defined('_JEXEC') or die;
+if (!class_exists('UvdeskwebkulHelpersUvdeskwebkul')) {
+    /**
+     * [UvdeskwebkulHelpersUvdeskwebkul Helper class]
+     *
+     * @category Component
+     * @package  Joomla
+     * @author   WebKul software private limited <support@webkul.com>
+     * @license  http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+     * @link     Technical Support:  webkul.uvdesk.com
+     */
+    class UvdeskwebkulHelpersUvdeskwebkul
+    {
+        /**
+         * Addsubmenu
+         *
+         * @param string $vName name of view
+         *
+         * @return null|object
+         */
+        public static function addSubmenu($vName = '')
+        {
+            JHtmlSidebar::addEntry(JText::_('COM_UVDESKWEBKUL_TITLE_V1EWTICKETS'), 'index.php?option=com_uvdeskwebkul&view=viewtickets', $vName == 'v1ewtickets');
+        }
+        /**
+         * Gets the files attached to an item
+         *
+         * @param int    $pk    The item's id
+         * @param string $table The table's name     *
+         * @param string $field The field's name
+         *
+         * @return array  The files
+         */
+        public static function getFiles($pk, $table, $field)
+        {
+            $db = JFactory::getDbo();
+            $query = $db->getQuery(true);
 
-/**
- * Uvdeskwebkul helper.
- *
- * @since  1.6
- */
-class UvdeskwebkulHelpersUvdeskwebkul
-{
-	/**
-	 * Configure the Linkbar.
-	 *
-	 * @param   string  $vName  string
-	 *
-	 * @return void
-	 */
-	public static function addSubmenu($vName = '')
-	{
-				JHtmlSidebar::addEntry(
-			JText::_('COM_UVDESKWEBKUL_TITLE_V1EWTICKETS'),
-			'index.php?option=com_uvdeskwebkul&view=viewtickets',
-			$vName == 'v1ewtickets'
-		);
-	}
+            $query
+                ->select($field)
+                ->from($table)
+                ->where('id = ' . (int) $pk);
 
-	/**
-	 * Gets the files attached to an item
-	 *
-	 * @param   int     $pk     The item's id
-	 *
-	 * @param   string  $table  The table's name
-	 *
-	 * @param   string  $field  The field's name
-	 *
-	 * @return  array  The files
-	 */
-	public static function getFiles($pk, $table, $field)
-	{
-		$db = JFactory::getDbo();
-		$query = $db->getQuery(true);
+            $db->setQuery($query);
 
-		$query
-			->select($field)
-			->from($table)
-			->where('id = ' . (int) $pk);
+            return explode(',', $db->loadResult());
+        }
 
-		$db->setQuery($query);
+        /**
+         * Gets a list of the actions that can be performed.
+         *
+         * @return JObject
+         *
+         * @since 1.6
+         */
+        public static function getActions()
+        {
+            $user   = JFactory::getUser();
+            $result = new JObject;
 
-		return explode(',', $db->loadResult());
-	}
+            $assetName = 'com_uvdeskwebkul';
 
-	/**
-	 * Gets a list of the actions that can be performed.
-	 *
-	 * @return    JObject
-	 *
-	 * @since    1.6
-	 */
-	public static function getActions()
-	{
-		$user   = JFactory::getUser();
-		$result = new JObject;
+            $actions = array(
+                'core.admin', 'core.manage', 'core.create', 'core.edit', 'core.edit.own', 'core.edit.state', 'core.delete'
+            );
 
-		$assetName = 'com_uvdeskwebkul';
+            foreach ($actions as $action) {
+                $result->set($action, $user->authorise($action, $assetName));
+            }
 
-		$actions = array(
-			'core.admin', 'core.manage', 'core.create', 'core.edit', 'core.edit.own', 'core.edit.state', 'core.delete'
-		);
-
-		foreach ($actions as $action)
-		{
-			$result->set($action, $user->authorise($action, $assetName));
-		}
-
-		return $result;
-	}
+            return $result;
+        }
+    }
 }
 
 
-class UvdeskwebkulHelper extends UvdeskwebkulHelpersUvdeskwebkul
-{
-
-}

@@ -26,9 +26,9 @@ jimport('joomla.form.formfield');
  * @license  http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
  * @link     Technical Support:  webkul.uvdesk.com
  */
-class JFormFieldSubmit extends JFormField
+class JFormFieldUsernote extends JFormField
 {
-    protected $type = 'submit';
+    protected $type = 'usernote';
     protected $value;
     protected $for;
     /**
@@ -38,13 +38,6 @@ class JFormFieldSubmit extends JFormField
      */
     public function getInput()
     {
-        $this->value = $this->getAttribute('value');
-        return '<button id="' . $this->id . '"'
-        . ' name="submit_' . $this->for . '"'
-        . ' value="' . $this->value . '"'
-        . ' title="' . JText::_('JSEARCH_FILTER_SUBMIT') . '"'
-        . ' class="btn" style="margin-top: -10px;">'
-        . JText::_('JSEARCH_FILTER_SUBMIT')
-        . ' </button>';
+        return '<div class="alert alert-info">'.JText::_('COM_UVDESKWEBKUL_USER_NOTE').'</div>';
     }
 }

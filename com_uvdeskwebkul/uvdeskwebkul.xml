@@ -42,18 +42,17 @@
         <folder>js</folder>
         <folder>css</folder>
     </media>
-    <languages folder="languages/site">
-        
-			<!-- <language tag="en-GB">en-GB/en-GB.com_uvdeskwebkul.ini</language> -->
+    <languages folder="languages/site">        
+			 <language tag="en-GB">en-GB/en-GB.com_uvdeskwebkul.ini</language> 
     </languages>
     <administration>
         <menu img="media/com_uvdeskwebkul/images/s_com_uvdeskwebkul.png" >COM_UVDESKWEBKUL</menu>
         <submenu>
             
-			<menu link="option=com_uvdeskwebkul&amp;view=dashboard" view="dashboard" img="media/com_uvdeskwebkul/images/s_.png" alt="Uvdeskwebkul/dashboard">Dashboard</menu>
-            <menu link="option=com_uvdeskwebkul&amp;view=Viewtickets" view="vewtickets" img="media/com_uvdeskwebkul/images/s_.png" alt="Uvdeskwebkul/Viewtickets">COM_UVDESKWEBKUL_TITLE_V1EWTICKETS</menu>
+			<menu link="option=com_uvdeskwebkul&amp;view=dashboard" view="dashboard" img="media/com_uvdeskwebkul/images/s_.png" alt="Uvdeskwebkul/dashboard">COM_UVDESKWEBKUL_TITLE_DASHBOARD</menu>
+            <menu link="option=com_uvdeskwebkul&amp;view=Viewtickets" view="vewtickets" img="media/com_uvdeskwebkul/images/s_.png" alt="Uvdeskwebkul/Viewtickets">COM_UVDESKWEBKUL_TITLE_VIEWTICKETS</menu>
 
-            <menu link="option=com_uvdeskwebkul&amp;view=users" view="users" img="media/com_uvdeskwebkul/images/s_.png" alt="Uvdeskwebkul/users">Customers</menu>
+            <menu link="option=com_uvdeskwebkul&amp;view=users" view="users" img="media/com_uvdeskwebkul/images/s_.png" alt="Uvdeskwebkul/users">COM_UVDESKWEBKUL_TITLE_CUSTOMERS</menu>
         </submenu>
         <files folder="administrator">
             <filename>access.xml</filename>

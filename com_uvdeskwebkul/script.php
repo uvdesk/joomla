@@ -1,20 +1,44 @@
 <?php
 /**
- * @version    CVS: 1.0.0
- * @package    Com_Uvdeskwebkul
- * @author     webkul <support@webkul.com>
- * @copyright  Copyright (C) 2010 webkul.com. All Rights Reserved
- * @license    GNU General Public License version 2 or later; see LICENSE.txt
+ * Joomla Help Desk Ticket System
+ *
+ * PHP version 7.0
+ *
+ * @category   Component
+ * @package    Joomla
+ * @author     WebKul software private limited <support@webkul.com>
+ * @copyright  2010 WebKul software private limited
+ * @license    http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+ * @version    GIT:1.0
+ * @filesource http://store.webkul.com
+ * @link       Technical Support:  webkul.uvdesk.com
  */
-
-
 defined('_JEXEC') or die('');
 jimport('joomla.installer.installer');
-class com_UvdeskwebkulInstallerScript
+/**
+ * [Com_UvdeskwebkulInstallerScript script class]
+ *
+ * @category Component
+ * @package  Joomla
+ * @author   WebKul software private limited <support@webkul.com>
+ * @license  http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+ * @link     Technical Support:  webkul.uvdesk.com
+ */
+class Com_UvdeskwebkulInstallerScript
 {
+    /**
+     * Method trigger after install.
+     *
+     * @param string $type   type
+     * @param string $parent parent
+     *
+     * @return JController This object to support chaining.
+     *
+     * @since 1.5
+     */
     public function postflight($type, $parent)
     {
-    	ob_start();
+        ob_start();
         ?>
         <style type="text/css">
             table{
@@ -154,7 +178,7 @@ class com_UvdeskwebkulInstallerScript
             <div class="box">
                 <div class="box-hd">
                     <div class="wk-title">
-                        <b>Joomla Helpdesk Ticket System</b> Successfully Installed.
+                        <b>UVdesk-Joomla Helpdesk Ticket System</b> Successfully Installed.
                     </div>
                     <div class="wk-social socialize">
                         <div id="fb-root"></div>
@@ -174,16 +198,16 @@ class com_UvdeskwebkulInstallerScript
                             Another product by&nbsp;
                         </div>
                         <div class="wk-logo-img">
-                            <a href="https://store.webkul.com/" target="_blank"><img src="components/com_marketplace/assets/images/webkul_logo.png" alt=""></a>
+                            <a href="https://store.webkul.com/" target="_blank"><img src="components/com_uvdeskwebkul/assets/images/webkul.png" alt=""></a>
                         </div>
                     </div>
                 </div>
                 <div class="box-bd">
                     <h1 class="wk-title">
-                        Thank you for your recent use of Joomla Helpdesk Ticket System.
+                        Thank you for your recent use of UVdesk-Joomla Helpdesk Ticket System.
                     </h1>
                     <p>
-                        Thank you for your recent use of Joomla Helpdesk Ticket System and congratulations on making the choice to use one of the best extension available for Joomla Virtuemart! Please read out documentation and Configure the package.<b> Kindly save configurations before setting up and testing the whole extension.</b>
+                        Thank you for your recent use of UVdesk-Joomla Helpdesk Ticket System and congratulations on making the choice to use one of this extension available for Joomla! Please read out documentation and Configure the package.<b> Kindly save configurations before setting up and testing the whole extension.</b>
                     </p>
                     <div class="helpdesk">
                         <p>
@@ -206,7 +230,15 @@ class com_UvdeskwebkulInstallerScript
         ob_end_clean();
         echo $contents;
     }
-
+    /**
+     * Method trigger install an extension
+     *
+     * @param string $parent parent
+     *
+     * @return JController This object to support chaining.
+     *
+     * @since 1.5
+     */
     public function uninstall($parent)
     {
         ob_start();
@@ -333,7 +365,7 @@ class com_UvdeskwebkulInstallerScript
             <div class="box">
                 <div class="box-hd">
                     <div class="wk-title">
-                        <b>Joomla Helpdesk Ticket System</b> Successfully Uninstalled.
+                        <b>UVdesk-Joomla Helpdesk Ticket System</b> Successfully Uninstalled.
                     </div>
                     <div class="wk-social socialize">
                         <div id="fb-root"></div>
@@ -351,10 +383,10 @@ class com_UvdeskwebkulInstallerScript
                 </div>
                 <div class="box-bd">
                     <h1 class="wk-title">
-                        Thank you for using Joomla Helpdesk Ticket System.
+                        Thank you for using UVdesk-Joomla Helpdesk Ticket System.
                     </h1>
                     <p>
-                        Thank you for using Joomla Helpdesk Ticket System. It's sad to see you going away. If you faced any trouble in using the extension or unsatisfied by any other functionality, you can tell us by shooting a ticket on our helpdesk.
+                        Thank you for using UVdesk-Joomla Helpdesk Ticket System. It's sad to see you going away. If you faced any trouble in using the extension or unsatisfied by any other functionality, you can tell us by shooting a ticket on our helpdesk.
                     </p>
                     <div class="actions">
                         <a href="https://webkul.com/ticket/" target="_blank" class="btn btn-success btn-install">Helpdesk &raquo;</a>
@@ -368,7 +400,16 @@ class com_UvdeskwebkulInstallerScript
         ob_end_clean();
         echo $contents;
     }
-    private function installationResults($status)
+    /**
+     * Method to show installation result
+     *
+     * @param string $status status
+     *
+     * @return JController This object to support chaining.
+     *
+     * @since 1.5
+     */
+    public function installationResults($status)
     {
 
         $comparams='{"paypal_shop_mode":"s","commision_option":"f","commision":"10","commision_amount":"500","appid":"","secretkey":"","recaptcha_enable":"0","captcha_site_key":"","wk_addproduct_imgsize":"104857667888","product_action_seller_delete":"pd","create_product":"1","create_seller":"1","wk_fbloginselect":"0","wk_feedback_approv":"n","wk_price_discount":"1","wk_price_tax":"1","wk_lazy_load_limit":"5"}';
@@ -381,7 +422,7 @@ class com_UvdeskwebkulInstallerScript
            
         }
         $rows = 0; ?>
-        <h2><?php echo JText::_('Joomla Helpdesk Ticket System Install Status'); ?></h2>
+        <h2><?php echo JText::_('UVdesk-Joomla Helpdesk Ticket System Install Status'); ?></h2>
         <table class="adminlist table table-striped">
             <thead>
                 <tr>
@@ -407,11 +448,20 @@ class com_UvdeskwebkulInstallerScript
         </table>
     <?php
     }
-    private function uninstallationResults($status)
+    /**
+     * Method to show installation result
+     *
+     * @param string $status status
+     *
+     * @return JController This object to support chaining.
+     *
+     * @since 1.5
+     */
+    public function uninstallationResults($status)
     {   
-    $rows = 0;
- ?>
-        <h2><?php echo JText::_('Joomla Helpdesk Ticket System Removal Status'); ?></h2>
+        $rows = 0;
+    ?>
+        <h2><?php echo JText::_('UVdesk-Joomla Helpdesk Ticket System Removal Status'); ?></h2>
         <table class="adminlist table table-striped">
             <thead>
                 <tr>
@@ -426,7 +476,7 @@ class com_UvdeskwebkulInstallerScript
             </tfoot>
             <tbody>
                 <tr class="row0">
-                    <td class="key" colspan="2"><?php echo JText::_('Joomla Helpdesk Ticket System'); ?></td>
+                    <td class="key" colspan="2"><?php echo JText::_('UVdesk-Joomla Helpdesk Ticket System'); ?></td>
                     <td><strong><?php echo JText::_('UnInstalled'); ?></strong></td>
                 </tr>
               
@@ -434,5 +484,5 @@ class com_UvdeskwebkulInstallerScript
         </table>
     <?php
     }
-    }
+}
         
