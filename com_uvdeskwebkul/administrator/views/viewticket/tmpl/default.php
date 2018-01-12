@@ -537,7 +537,7 @@ function callApi(){
                         echo 'Unassigned';
                     }
                     ?></td></tr>
-                    <tr><td class="wk_ticket_single_status"><strong><?php echo JText::_('COM_UVDESKWEBKUL_TICKET_TYPE')?></strong></td><td><?php echo $data->ticket->type->name;?></td></tr>
+                    <tr><td class="wk_ticket_single_status"><strong><?php echo JText::_('COM_UVDESKWEBKUL_TICKET_TYPE')?></strong></td><td><?php if(isset($data->ticket->type->name)) echo $data->ticket->type->name;?></td></tr>
                     <tr><td class="wk_ticket_single_status"><strong><?php echo JText::_('COM_UVDESKWEBKUL_TICKET_STATUS')?></strong></td><td><?php echo $data->ticket->status->name;?></td></tr>
                     <tr><td class="wk_ticket_single_status"><strong><?php echo JText::_('COM_UVDESKWEBKUL_TICKET_PRIORITY')?></strong></td><td><?php echo $data->ticket->priority->name;?></td></tr>
                     <tr><td class="wk_ticket_single_status"><strong><?php echo JText::_('COM_UVDESKWEBKUL_TICKET_TOTAL_THREADS')?></strong></td><td><?php echo $data->ticketTotalThreads;?></td></tr>
